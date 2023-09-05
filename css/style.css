@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+section {
+  min-height: 100vh;
+  padding: 2% 2rem;
+  background: linear-gradient(rgb(80, 29, 11), rgb(146, 76, 1), rgb(55, 2, 2));
+}
+
+.box h1,
+.box h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.tanah {
+  width: 13rem;
+  height: 13rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tanah::after {
+  content: "";
+  background: url("../image/tanah.png") bottom center no-repeat;
+  width: 13rem;
+  height: 6rem;
+  display: block;
+  position: absolute;
+  bottom: -2rem;
+  background-size: 100%;
+}
+
+.tikus {
+  background: url("../image/tikus.png") bottom center no-repeat;
+  filter: drop-shadow(0 0 25px black);
+  width: 100%;
+  height: 100%;
+  background-size: 80%;
+  position: absolute;
+  top: 9rem;
+  transition: 0.1s ease;
+}
+
+.tanah.muncul .tikus {
+  top: 1rem;
+}
+.tanah.muncul .tikus.disabled {
+  pointer-events: none;
+}
+
+.tanah.muncul .tikus.kenak {
+  top: 2rem;
+  animation: floatImage 0.3s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+  0% {
+    background: url("../image/tikus1.png") bottom center no-repeat;
+    background-size: 80%;
+  }
+  50% {
+    background: url("../image/tikus2.png") bottom center no-repeat;
+    background-size: 80%;
+  }
+  75% {
+    background: url("../image/tikus3.png") bottom center no-repeat;
+    background-size: 80%;
+  }
+  100% {
+    background: url("../image/tikus4.png") bottom center no-repeat;
+    background-size: 80%;
+  }
+}
+
+.star {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mulai {
+  width: 8rem;
+  height: 2.5rem;
+  border-radius: 1rem;
+  background: red;
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.mulai:disabled {
+  background-color: black;
+  color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  font-size: 1.3rem;
+  background-color: black;
+  color: white;
+  overflow-y: hidden;
+}
+
+.cursor {
+  width: 5rem;
+  height: 5rem;
+  background-image: url("../image/palu.png");
+  background-size: 100%;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pukul {
+  transform: rotate(-35deg);
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 95%;
+  }
+  .tanah {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width: 768px), screen and (max-height: 1138px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 65%;
+  }
+
+  .box h1,
+  .box h2 {
+    font-size: 5rem;
+  }
+
+  .mulai {
+    width: 10rem;
+    height: 4rem;
+  }
+
+  .tanah::after {
+    background-size: 100%;
+    height: 6rem;
+  }
+
+  .cursor {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 495px) {
+  html {
+    font-size: 55%;
+  }
+
+  .tanah {
+    margin-bottom: 7rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  html {
+    font-size: 45%;
+  }
+}
